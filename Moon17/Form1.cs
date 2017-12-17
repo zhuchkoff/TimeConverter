@@ -16,15 +16,10 @@ namespace Moon17
     public partial class Form1 : Form
     {
         private static double CONVERSION_FACTOR_DAYS = 1.45418;
-        private static double STOCK_TRADING_HOURS_PER_DAY = 6.5; // currently stock hours are discounted 
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void rBtnYear_CheckedChanged(object sender, EventArgs e)
-        {
-            calculate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -141,6 +136,11 @@ namespace Moon17
             return years / 4;
         }
 
+        private void rBtnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            calculate();
+        }
+
         private void rBtnMonth_CheckedChanged(object sender, EventArgs e)
         {
             calculate();
@@ -186,6 +186,9 @@ namespace Moon17
             calculate();
         }
 
+        //
+        // HMS section
+        //
         private void bPlus_Click(object sender, EventArgs e)
         {
             long n = Convert.ToInt64(tHMSnumber.Text);
@@ -213,7 +216,7 @@ namespace Moon17
             calculateHMS();
         }
 
-        private double getDays()
+        private double getDaysFromHours()
         {
             double result = 0;
             long n = Convert.ToInt64(tHMSnumber.Text);
@@ -225,7 +228,7 @@ namespace Moon17
 
         private void calculateHMS()
         {
-            double cDays = getDays();
+            double cDays = getDaysFromHours();
             if (rbTrading.Checked) cDays *= CONVERSION_FACTOR_DAYS;
 
             string Format = "{0:0.00}";
@@ -233,7 +236,7 @@ namespace Moon17
             lblHMSdays.Text = String.Format(Format, cDays);
             lblHMSyears.Text = String.Format(Format, cDays/365.25);
             lblHMSmonths.Text = String.Format(Format, cDays / 30.44);
-            lblHMSweeks.Text = String.Format(Format, cDays / 52.17);
+            lblHMSweeks.Text = String.Format(Format, cDays / 7);
             lblHMShours.Text = String.Format(Format, cDays * 24);
             lblHMSminutes.Text = String.Format(Format, cDays * 24 * 60);
             lblHMSseconds.Text = String.Format(Format, cDays * 24 * 60 * 60);
