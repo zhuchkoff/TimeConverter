@@ -15,6 +15,7 @@ namespace Moon17
 {
     public partial class Form1 : Form
     {
+        private const double LENGHT_OF_THE_YEAR = 365.24218967;
         private static double CONVERSION_FACTOR_DAYS = 1.45418;
 
         public Form1()
@@ -41,8 +42,8 @@ namespace Moon17
 
                 string Format = (radioButtonFull.Checked) ? "{0:0.00}" : "{0:0}";
 
-                lblYears.Text = String.Format(Format, GetUpToNDigits(cDays / 365));
-                lblMonths.Text = String.Format(Format, GetUpToNDigits(cDays / 365*12));
+                lblYears.Text = String.Format(Format, GetUpToNDigits(cDays / LENGHT_OF_THE_YEAR));
+                lblMonths.Text = String.Format(Format, GetUpToNDigits(cDays / LENGHT_OF_THE_YEAR * 12));
                 lblWeeks.Text = String.Format(Format, GetUpToNDigits(cDays / 7));
                 lblCDays.Text = String.Format(Format, GetUpToNDigits(cDays));
                 lblHours.Text = String.Format(Format, GetUpToNDigits(cDays * 24));
@@ -103,12 +104,12 @@ namespace Moon17
             double cDays = 0.0F;
             if (rBtnYear.Checked)
             {
-                cDays = number * 365 + leapDays(number);
+                cDays = number * LENGHT_OF_THE_YEAR;
             }
             else if (rBtnMonth.Checked)
             {
                 double years = number / 12;
-                cDays = years * 365 + leapDays(years);
+                cDays = years * LENGHT_OF_THE_YEAR;
             }
             else if (rBtnWeek.Checked)
             {
@@ -130,11 +131,6 @@ namespace Moon17
             return cDays;
         }
 
-
-        private double leapDays(double years)
-        {
-            return years / 4;
-        }
 
         private void rBtnYear_CheckedChanged(object sender, EventArgs e)
         {
@@ -234,8 +230,8 @@ namespace Moon17
             string Format = "{0:0.00}";
 
             lblHMSdays.Text = String.Format(Format, cDays);
-            lblHMSyears.Text = String.Format(Format, cDays/365.25);
-            lblHMSmonths.Text = String.Format(Format, cDays / 30.44);
+            lblHMSyears.Text = String.Format(Format, cDays / LENGHT_OF_THE_YEAR);
+            lblHMSmonths.Text = String.Format(Format, cDays / 30.416);
             lblHMSweeks.Text = String.Format(Format, cDays / 7);
             lblHMShours.Text = String.Format(Format, cDays * 24);
             lblHMSminutes.Text = String.Format(Format, cDays * 24 * 60);
