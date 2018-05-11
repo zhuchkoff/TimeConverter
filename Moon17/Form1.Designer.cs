@@ -57,7 +57,6 @@
             this.lblYears = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rBtnTHour = new System.Windows.Forms.RadioButton();
             this.rBtnCDays = new System.Windows.Forms.RadioButton();
             this.rBtnTDays = new System.Windows.Forms.RadioButton();
             this.rBtnWeek = new System.Windows.Forms.RadioButton();
@@ -66,7 +65,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Conversion = new System.Windows.Forms.TabPage();
+            this.btnPlus = new System.Windows.Forms.Button();
+            this.btnMinus = new System.Windows.Forms.Button();
             this.HMS = new System.Windows.Forms.TabPage();
+            this.btnDownHMS = new System.Windows.Forms.Button();
+            this.btnUpHMS = new System.Windows.Forms.Button();
             this.bHMScalculate = new System.Windows.Forms.Button();
             this.lblHMSseconds = new System.Windows.Forms.Label();
             this.lblHMSminutes = new System.Windows.Forms.Label();
@@ -82,8 +85,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.bMinus = new System.Windows.Forms.Button();
-            this.bPlus = new System.Windows.Forms.Button();
+            this.btnMinusHMS = new System.Windows.Forms.Button();
+            this.btnPlusHMS = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rSeconds = new System.Windows.Forms.RadioButton();
             this.rMinutes = new System.Windows.Forms.RadioButton();
@@ -93,33 +96,42 @@
             this.rbCalendar = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.tHMSnumber = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelCalendarDaysPart = new System.Windows.Forms.Label();
+            this.buttonTCHoursCalculate = new System.Windows.Forms.Button();
+            this.labelCalendarTime = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxTradingHours = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tradingHoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forexAndFuturesMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Conversion.SuspendLayout();
             this.HMS.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButtonFull
             // 
             this.radioButtonFull.AutoSize = true;
-            this.radioButtonFull.Checked = true;
             this.radioButtonFull.Location = new System.Drawing.Point(296, 28);
             this.radioButtonFull.Name = "radioButtonFull";
             this.radioButtonFull.Size = new System.Drawing.Size(41, 17);
             this.radioButtonFull.TabIndex = 89;
-            this.radioButtonFull.TabStop = true;
             this.radioButtonFull.Text = "Full";
             this.radioButtonFull.UseVisualStyleBackColor = true;
             this.radioButtonFull.Click += new System.EventHandler(this.radioButtonFull_CheckedChanged);
             // 
             // txtBoxInput
             // 
-            this.txtBoxInput.Location = new System.Drawing.Point(6, 28);
+            this.txtBoxInput.Location = new System.Drawing.Point(9, 28);
             this.txtBoxInput.Name = "txtBoxInput";
-            this.txtBoxInput.Size = new System.Drawing.Size(119, 20);
+            this.txtBoxInput.Size = new System.Drawing.Size(109, 20);
             this.txtBoxInput.TabIndex = 60;
             this.txtBoxInput.Text = "0";
             // 
@@ -127,7 +139,7 @@
             // 
             this.btnCalculate.Location = new System.Drawing.Point(6, 231);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(122, 23);
+            this.btnCalculate.Size = new System.Drawing.Size(112, 23);
             this.btnCalculate.TabIndex = 75;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -147,10 +159,12 @@
             // radioButton3D
             // 
             this.radioButton3D.AutoSize = true;
+            this.radioButton3D.Checked = true;
             this.radioButton3D.Location = new System.Drawing.Point(208, 28);
             this.radioButton3D.Name = "radioButton3D";
             this.radioButton3D.Size = new System.Drawing.Size(39, 17);
             this.radioButton3D.TabIndex = 87;
+            this.radioButton3D.TabStop = true;
             this.radioButton3D.Text = "3D";
             this.radioButton3D.UseVisualStyleBackColor = true;
             this.radioButton3D.Click += new System.EventHandler(this.radioButton3D_CheckedChanged);
@@ -388,29 +402,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rBtnTHour);
             this.groupBox1.Controls.Add(this.rBtnCDays);
             this.groupBox1.Controls.Add(this.rBtnTDays);
             this.groupBox1.Controls.Add(this.rBtnWeek);
             this.groupBox1.Controls.Add(this.rBtnMonth);
             this.groupBox1.Controls.Add(this.rBtnYear);
-            this.groupBox1.Location = new System.Drawing.Point(6, 60);
+            this.groupBox1.Location = new System.Drawing.Point(6, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(122, 164);
+            this.groupBox1.Size = new System.Drawing.Size(112, 146);
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Time Period";
-            // 
-            // rBtnTHour
-            // 
-            this.rBtnTHour.AutoSize = true;
-            this.rBtnTHour.Location = new System.Drawing.Point(15, 129);
-            this.rBtnTHour.Name = "rBtnTHour";
-            this.rBtnTHour.Size = new System.Drawing.Size(66, 17);
-            this.rBtnTHour.TabIndex = 5;
-            this.rBtnTHour.Text = "T. Hours";
-            this.rBtnTHour.UseVisualStyleBackColor = true;
-            this.rBtnTHour.Click += new System.EventHandler(this.rBtnHour_CheckedChanged);
             // 
             // rBtnCDays
             // 
@@ -482,7 +484,8 @@
             // 
             this.tabControl1.Controls.Add(this.Conversion);
             this.tabControl1.Controls.Add(this.HMS);
-            this.tabControl1.Location = new System.Drawing.Point(2, 2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(2, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(478, 294);
@@ -490,6 +493,8 @@
             // 
             // Conversion
             // 
+            this.Conversion.Controls.Add(this.btnPlus);
+            this.Conversion.Controls.Add(this.btnMinus);
             this.Conversion.Controls.Add(this.btnCalculate);
             this.Conversion.Controls.Add(this.txtBoxInput);
             this.Conversion.Controls.Add(this.label1);
@@ -528,9 +533,30 @@
             this.Conversion.Text = "Conversion";
             this.Conversion.UseVisualStyleBackColor = true;
             // 
+            // btnPlus
+            // 
+            this.btnPlus.Location = new System.Drawing.Point(60, 50);
+            this.btnPlus.Name = "btnPlus";
+            this.btnPlus.Size = new System.Drawing.Size(58, 23);
+            this.btnPlus.TabIndex = 91;
+            this.btnPlus.Text = "+";
+            this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
+            // 
+            // btnMinus
+            // 
+            this.btnMinus.Location = new System.Drawing.Point(9, 50);
+            this.btnMinus.Name = "btnMinus";
+            this.btnMinus.Size = new System.Drawing.Size(55, 23);
+            this.btnMinus.TabIndex = 90;
+            this.btnMinus.Text = "-";
+            this.btnMinus.UseVisualStyleBackColor = true;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
+            // 
             // HMS
             // 
-            this.HMS.Controls.Add(this.label20);
+            this.HMS.Controls.Add(this.btnDownHMS);
+            this.HMS.Controls.Add(this.btnUpHMS);
             this.HMS.Controls.Add(this.bHMScalculate);
             this.HMS.Controls.Add(this.lblHMSseconds);
             this.HMS.Controls.Add(this.lblHMSminutes);
@@ -546,8 +572,8 @@
             this.HMS.Controls.Add(this.label16);
             this.HMS.Controls.Add(this.label15);
             this.HMS.Controls.Add(this.label13);
-            this.HMS.Controls.Add(this.bMinus);
-            this.HMS.Controls.Add(this.bPlus);
+            this.HMS.Controls.Add(this.btnMinusHMS);
+            this.HMS.Controls.Add(this.btnPlusHMS);
             this.HMS.Controls.Add(this.groupBox3);
             this.HMS.Controls.Add(this.groupBox2);
             this.HMS.Controls.Add(this.label11);
@@ -560,11 +586,31 @@
             this.HMS.Text = "HMS";
             this.HMS.UseVisualStyleBackColor = true;
             // 
+            // btnDownHMS
+            // 
+            this.btnDownHMS.Location = new System.Drawing.Point(119, 54);
+            this.btnDownHMS.Name = "btnDownHMS";
+            this.btnDownHMS.Size = new System.Drawing.Size(43, 23);
+            this.btnDownHMS.TabIndex = 24;
+            this.btnDownHMS.Text = "down";
+            this.btnDownHMS.UseVisualStyleBackColor = true;
+            this.btnDownHMS.Click += new System.EventHandler(this.btnDownHMS_Click);
+            // 
+            // btnUpHMS
+            // 
+            this.btnUpHMS.Location = new System.Drawing.Point(75, 54);
+            this.btnUpHMS.Name = "btnUpHMS";
+            this.btnUpHMS.Size = new System.Drawing.Size(46, 23);
+            this.btnUpHMS.TabIndex = 23;
+            this.btnUpHMS.Text = "up";
+            this.btnUpHMS.UseVisualStyleBackColor = true;
+            this.btnUpHMS.Click += new System.EventHandler(this.btnUpHMS_Click);
+            // 
             // bHMScalculate
             // 
             this.bHMScalculate.Location = new System.Drawing.Point(9, 234);
             this.bHMScalculate.Name = "bHMScalculate";
-            this.bHMScalculate.Size = new System.Drawing.Size(146, 23);
+            this.bHMScalculate.Size = new System.Drawing.Size(153, 23);
             this.bHMScalculate.TabIndex = 21;
             this.bHMScalculate.Text = "Calculate";
             this.bHMScalculate.UseVisualStyleBackColor = true;
@@ -710,25 +756,25 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Years";
             // 
-            // bMinus
+            // btnMinusHMS
             // 
-            this.bMinus.Location = new System.Drawing.Point(80, 54);
-            this.bMinus.Name = "bMinus";
-            this.bMinus.Size = new System.Drawing.Size(75, 23);
-            this.bMinus.TabIndex = 5;
-            this.bMinus.Text = "-";
-            this.bMinus.UseVisualStyleBackColor = true;
-            this.bMinus.Click += new System.EventHandler(this.bMinus_Click);
+            this.btnMinusHMS.Location = new System.Drawing.Point(10, 54);
+            this.btnMinusHMS.Name = "btnMinusHMS";
+            this.btnMinusHMS.Size = new System.Drawing.Size(36, 23);
+            this.btnMinusHMS.TabIndex = 5;
+            this.btnMinusHMS.Text = "-";
+            this.btnMinusHMS.UseVisualStyleBackColor = true;
+            this.btnMinusHMS.Click += new System.EventHandler(this.btnMinusHMS_Click);
             // 
-            // bPlus
+            // btnPlusHMS
             // 
-            this.bPlus.Location = new System.Drawing.Point(10, 54);
-            this.bPlus.Name = "bPlus";
-            this.bPlus.Size = new System.Drawing.Size(76, 23);
-            this.bPlus.TabIndex = 4;
-            this.bPlus.Text = "+";
-            this.bPlus.UseVisualStyleBackColor = true;
-            this.bPlus.Click += new System.EventHandler(this.bPlus_Click);
+            this.btnPlusHMS.Location = new System.Drawing.Point(42, 54);
+            this.btnPlusHMS.Name = "btnPlusHMS";
+            this.btnPlusHMS.Size = new System.Drawing.Size(37, 23);
+            this.btnPlusHMS.TabIndex = 4;
+            this.btnPlusHMS.Text = "+";
+            this.btnPlusHMS.UseVisualStyleBackColor = true;
+            this.btnPlusHMS.Click += new System.EventHandler(this.btnPlusHMS_Click);
             // 
             // groupBox3
             // 
@@ -737,7 +783,7 @@
             this.groupBox3.Controls.Add(this.rHours);
             this.groupBox3.Location = new System.Drawing.Point(10, 133);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(145, 90);
+            this.groupBox3.Size = new System.Drawing.Size(152, 90);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
@@ -782,13 +828,14 @@
             this.groupBox2.Controls.Add(this.rbCalendar);
             this.groupBox2.Location = new System.Drawing.Point(10, 74);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(145, 57);
+            this.groupBox2.Size = new System.Drawing.Size(152, 57);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
             // rbTrading
             // 
             this.rbTrading.AutoSize = true;
+            this.rbTrading.Enabled = false;
             this.rbTrading.Location = new System.Drawing.Point(80, 20);
             this.rbTrading.Name = "rbTrading";
             this.rbTrading.Size = new System.Drawing.Size(61, 17);
@@ -823,26 +870,116 @@
             // 
             this.tHMSnumber.Location = new System.Drawing.Point(10, 28);
             this.tHMSnumber.Name = "tHMSnumber";
-            this.tHMSnumber.Size = new System.Drawing.Size(145, 20);
+            this.tHMSnumber.Size = new System.Drawing.Size(152, 20);
             this.tHMSnumber.TabIndex = 0;
             this.tHMSnumber.Text = "0";
             // 
-            // label20
+            // tabPage1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(218, 28);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(88, 13);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "Calendar Time";
+            this.tabPage1.Controls.Add(this.labelCalendarDaysPart);
+            this.tabPage1.Controls.Add(this.buttonTCHoursCalculate);
+            this.tabPage1.Controls.Add(this.labelCalendarTime);
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.textBoxTradingHours);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(470, 268);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "T <-> C Hours";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelCalendarDaysPart
+            // 
+            this.labelCalendarDaysPart.AutoSize = true;
+            this.labelCalendarDaysPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCalendarDaysPart.ForeColor = System.Drawing.Color.Blue;
+            this.labelCalendarDaysPart.Location = new System.Drawing.Point(105, 65);
+            this.labelCalendarDaysPart.Name = "labelCalendarDaysPart";
+            this.labelCalendarDaysPart.Size = new System.Drawing.Size(14, 13);
+            this.labelCalendarDaysPart.TabIndex = 7;
+            this.labelCalendarDaysPart.Text = "0";
+            // 
+            // buttonTCHoursCalculate
+            // 
+            this.buttonTCHoursCalculate.Location = new System.Drawing.Point(6, 65);
+            this.buttonTCHoursCalculate.Name = "buttonTCHoursCalculate";
+            this.buttonTCHoursCalculate.Size = new System.Drawing.Size(75, 23);
+            this.buttonTCHoursCalculate.TabIndex = 6;
+            this.buttonTCHoursCalculate.Text = "Calculate";
+            this.buttonTCHoursCalculate.UseVisualStyleBackColor = true;
+            this.buttonTCHoursCalculate.Click += new System.EventHandler(this.buttonTCHoursCalculate_Click);
+            // 
+            // labelCalendarTime
+            // 
+            this.labelCalendarTime.AutoSize = true;
+            this.labelCalendarTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCalendarTime.ForeColor = System.Drawing.Color.Blue;
+            this.labelCalendarTime.Location = new System.Drawing.Point(105, 39);
+            this.labelCalendarTime.Name = "labelCalendarTime";
+            this.labelCalendarTime.Size = new System.Drawing.Size(14, 13);
+            this.labelCalendarTime.TabIndex = 4;
+            this.labelCalendarTime.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(80, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Calendar Hours";
+            // 
+            // textBoxTradingHours
+            // 
+            this.textBoxTradingHours.Location = new System.Drawing.Point(6, 39);
+            this.textBoxTradingHours.Name = "textBoxTradingHours";
+            this.textBoxTradingHours.Size = new System.Drawing.Size(74, 20);
+            this.textBoxTradingHours.TabIndex = 0;
+            this.textBoxTradingHours.Text = "0";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tradingHoursToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(480, 24);
+            this.menuStrip1.TabIndex = 91;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tradingHoursToolStripMenuItem
+            // 
+            this.tradingHoursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockMarketToolStripMenuItem,
+            this.forexAndFuturesMarketToolStripMenuItem});
+            this.tradingHoursToolStripMenuItem.Name = "tradingHoursToolStripMenuItem";
+            this.tradingHoursToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.tradingHoursToolStripMenuItem.Text = "Trading Hours";
+            // 
+            // stockMarketToolStripMenuItem
+            // 
+            this.stockMarketToolStripMenuItem.Name = "stockMarketToolStripMenuItem";
+            this.stockMarketToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.stockMarketToolStripMenuItem.Text = "Stock Market";
+            this.stockMarketToolStripMenuItem.Click += new System.EventHandler(this.stockMarketToolStripMenuItem_Click);
+            // 
+            // forexAndFuturesMarketToolStripMenuItem
+            // 
+            this.forexAndFuturesMarketToolStripMenuItem.Checked = true;
+            this.forexAndFuturesMarketToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.forexAndFuturesMarketToolStripMenuItem.Name = "forexAndFuturesMarketToolStripMenuItem";
+            this.forexAndFuturesMarketToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.forexAndFuturesMarketToolStripMenuItem.Text = "Forex and Futures Market";
+            this.forexAndFuturesMarketToolStripMenuItem.Click += new System.EventHandler(this.forexAndFuturesMarketToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 293);
+            this.ClientSize = new System.Drawing.Size(480, 328);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Time Converter";
@@ -858,7 +995,12 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -892,7 +1034,6 @@
         private System.Windows.Forms.Label lblYears;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rBtnTHour;
         private System.Windows.Forms.RadioButton rBtnCDays;
         private System.Windows.Forms.RadioButton rBtnTDays;
         private System.Windows.Forms.RadioButton rBtnWeek;
@@ -916,8 +1057,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button bMinus;
-        private System.Windows.Forms.Button bPlus;
+        private System.Windows.Forms.Button btnMinusHMS;
+        private System.Windows.Forms.Button btnPlusHMS;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton rSeconds;
         private System.Windows.Forms.RadioButton rMinutes;
@@ -928,7 +1069,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tHMSnumber;
         private System.Windows.Forms.Button bHMScalculate;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button buttonTCHoursCalculate;
+        private System.Windows.Forms.Label labelCalendarTime;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBoxTradingHours;
+        private System.Windows.Forms.Label labelCalendarDaysPart;
+        private System.Windows.Forms.Button btnPlus;
+        private System.Windows.Forms.Button btnMinus;
+        private System.Windows.Forms.Button btnDownHMS;
+        private System.Windows.Forms.Button btnUpHMS;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tradingHoursToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockMarketToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forexAndFuturesMarketToolStripMenuItem;
     }
 }
 
